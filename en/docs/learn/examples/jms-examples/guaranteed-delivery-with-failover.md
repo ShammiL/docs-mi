@@ -1,6 +1,6 @@
 # Guaranteed Delivery with Failover
 
-WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can setup guaranteed message delivery with failover configurations.
+WSO2 Micro Integrator ensures guaranteed delivery with the failover message store and scheduled failover message forwarding processor. The topics in the following section describe how you can set up guaranteed message delivery with failover configurations.
 
 The following diagram illustrates a scenario where a failover message
 store and a scheduled failover message forwarding processor is used
@@ -20,7 +20,7 @@ forwarding processor is almost the same as the scheduled message
 forwarding processor. The only difference is that the scheduled message
 forwarding processor forwards messages to a defined endpoint, whereas
 the scheduled failover message forwarding processor forwards messages to
-the original message store that the message was supposed to be
+the original message store where the message was supposed to be
 temporarily stored.
 
 ## Synapse Configurations
@@ -119,7 +119,7 @@ The synapse configurations used above are as follows:
     * Source Message Store
     * Target Message Store
 
-    The scheduled failover message forwarding processor sends messages from the failover store to the original store when it is available in the failover scenario. In this configuration, the source message store should be the failover message store and target message store should be the original message store.
+    The scheduled failover message forwarding processor sends messages from the failover store to the original store when it is available in the failover scenario. In this configuration, the source message store should be the failover message store and the target message store should be the original message store.
 
 - **Proxy service**
 
@@ -139,10 +139,6 @@ Set up the broker:
 1.  [Configure a broker]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport) with your Micro Integrator instance. Let's use Active MQ for this example.
 2.  Start the broker.
 3.  Start the Micro Integrator (after starting the broker).
-
-    !!! Warning
-        If you are using message processor with Active MQ broker add the following configuration to the startup script before starting the server as shown below,
-        For Linux/Mac OS update `micro-integrator.sh` and for Windows update `micro-integrator.bat` with `-Dorg.apache.activemq.SERIALIZABLE_PACKAGES="*"` system property.
 
 Set up the back-end service:
 
